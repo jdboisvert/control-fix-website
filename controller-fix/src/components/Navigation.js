@@ -36,13 +36,6 @@ const Navigation = () => {
                 <MDBCollapse navbar show={showBasic}>
                     <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
                         <MDBNavbarItem>
-                            <MDBNavbarLink active aria-current='page'>
-                                <NavLink to='/' activeClassName='active' exact>
-                                    Home
-                                </NavLink>
-                            </MDBNavbarLink>
-                        </MDBNavbarItem>
-                        <MDBNavbarItem>
                             <MDBNavbarLink>
                                 <NavLink to='/about' activeClassName='active'>
                                     About
