@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import ControllerGrid from './components/ControllerGrid';
 import ControllerDetails from './components/ControllerDetails';
-import ContactForm from './components/ContactForm'; // Adjust the path as necessary
+import ContactForm from './components/ContactForm';
+import About from './components/About';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<ControllerGrid />} />
             <Route path="/controller/:id" element={<ControllerDetails />} />
+            <Route path="/about" element={<About />} />
             <Route path="/contact" element={<ContactForm />} />
           </Routes>
         </main>

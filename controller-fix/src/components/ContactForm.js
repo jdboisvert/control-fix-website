@@ -33,28 +33,28 @@ const ContactForm = () => {
       <MDBRow>
         <MDBCol md="6">
           <form onSubmit={handleSubmit}>
-            <p className="h4 text-center mb-4">Write to us</p>
-            <MDBInput 
-              label="Your name" 
-              type="text" 
-              name="name" 
-              value={formData.name} 
-              onChange={handleChange} 
+            <p className="h4 text-center mb-4">Let's get in touch!</p>
+            <MDBInput
+              label="Your name"
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
             />
-            <MDBInput 
-              label="Your email" 
-              type="email" 
-              name="email" 
-              value={formData.email} 
-              onChange={handleChange} 
+            <MDBInput
+              label="Your email"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
             />
-            <MDBInput 
-              type="textarea" 
-              label="Your message" 
-              rows="4" 
-              name="message" 
-              value={formData.message} 
-              onChange={handleChange} 
+            <MDBInput
+              type="textarea"
+              label="Your message"
+              rows="4"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
             />
             <div className="text-center mt-4">
               <MDBBtn color="warning" type="submit">Send</MDBBtn>

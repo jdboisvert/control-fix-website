@@ -22,7 +22,7 @@ const ControllerCard = ({ id, imgUrl, title, description }) => {
           <MDBBtn>More Details</MDBBtn>
         </Link>
       </MDBCardBody>
-      
+
     </MDBCard>
   );
 }
