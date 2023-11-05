@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   MDBCard,
   MDBCardBody,
@@ -8,8 +9,7 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 
-// TODO add link to learn more and introduce i18n. 
-const ControllerCard = ({ imgUrl, title, description }) => {
+const ControllerCard = ({ id, imgUrl, title, description }) => {
   return (
     <MDBCard>
       <MDBCardImage src={imgUrl} position='top' alt={title} />
@@ -18,8 +18,11 @@ const ControllerCard = ({ imgUrl, title, description }) => {
         <MDBCardText>
           {description}
         </MDBCardText>
-        <MDBBtn href='#'>Learn More</MDBBtn>
+        <Link to={`/controller/${id}`}>
+          <MDBBtn>More Details</MDBBtn>
+        </Link>
       </MDBCardBody>
+      
     </MDBCard>
   );
 }
