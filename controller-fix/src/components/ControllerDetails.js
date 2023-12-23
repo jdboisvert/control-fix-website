@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Radar } from 'react-chartjs-2';
+import { Scatter } from 'react-chartjs-2';
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdb-react-ui-kit';
-import Chart from 'chart.js/auto'; // Required so that chart.js can be used with react-chartjs-2 and it doesn't throw an error.
+import 'chart.js/auto'; // Required so that chart.js can be used with react-chartjs-2 and it doesn't throw an error.
 
 const ControllerDetails = () => {
     let { id } = useParams();
@@ -32,94 +32,61 @@ const ControllerDetails = () => {
     const details = getControllerDetails(id);
 
     // Mock joystick responsiveness values
-    const joystickDataBefore = {
-        UP: 90, // Replace with actual values
-        UPRIGHT: 80,
-        RIGHT: 85,
-        DOWNRIGHT: 70,
-        DOWN: 60,
-        DOWNLEFT: 65,
-        LEFT: 75,
-        UPLEFT: 85,
-    };
+    const joystickPositionsBefore = [
+        { x: 0, y: 62 },
+        { x: 45, y: 47 },
+        { x: 44, y: -16 },
+        { x: 45, y: -69 },
+        { x: 0, y: -85 },
+        { x: -45, y: -69 },
+        { x: -44, y: -16 },
+        { x: -45, y: 47 },
+    ];
 
-    const joystickDataAfter = {
-        UP: 95,
-        UPRIGHT: 90,
-        RIGHT: 90,
-        DOWNRIGHT: 88,
-        DOWN: 85,
-        DOWNLEFT: 84,
-        LEFT: 88,
-        UPLEFT: 92,
-    };
+    const joystickPositionsAfter = [
+        { x: 0, y: 85 },
+        { x: -1, y: -100 },
+        { x: -1, y: 87 },
+        { x: -1, y: -100 },
+        { x: -2, y: 100 },
+        { x: -1, y: 75 },
+        { x: -1, y: 100 },
+        { x: -1, y: 100 },
+    ];
 
-    // Mock joystick responsiveness values
-    const originalJoystickData = {
-            UP: 80,
-            UPRIGHT: 80,
-            RIGHT: 80,
-            DOWNRIGHT: 80,
-            DOWN: 80,
-            DOWNLEFT: 80,
-            LEFT: 80,
-            UPLEFT: 80,
-        };
+    // Ensure they connect 
+    const joystickDataBeforeClosedLoop = [...joystickPositionsBefore, joystickPositionsBefore[0]];
+    const joystickDataAfterClosedLoop = [...joystickPositionsAfter, joystickPositionsAfter[0]];
 
-    // Radar chart data
-    const chartData = {
-        labels: Object.keys(joystickDataBefore),
+    // Scatter plot data
+    const scatterData = {
         datasets: [
             {
-                label: 'Factory Original',
-                data: Object.values(originalJoystickData),
-                fill: true,
-                backgroundColor: 'rgba(75, 192, 192, 0.2)', // Light green with transparency
-                borderColor: 'rgb(75, 192, 192)', // Solid light green
-                pointBackgroundColor: 'rgb(75, 192, 192)',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgb(75, 192, 192)'
-            },            
-            {
                 label: 'Before',
-                data: Object.values(joystickDataBefore),
-                fill: true,
+                data: joystickDataBeforeClosedLoop,
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgb(255, 99, 132)',
-                pointBackgroundColor: 'rgb(255, 99, 132)',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgb(255, 99, 132)'
+                borderColor: 'rgba(255, 99, 132, 1)',
+                showLine: true,
+                fill: true, // Fill the area under the line
             },
             {
                 label: 'After',
-                data: Object.values(joystickDataAfter),
-                fill: true,
+                data: joystickDataAfterClosedLoop,
                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgb(54, 162, 235)',
-                pointBackgroundColor: 'rgb(54, 162, 235)',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgb(54, 162, 235)'
+                borderColor: 'rgba(54, 162, 235, 1)',
+                showLine: true,
+                fill: true, // Fill the area under the line
             },
+            // TODO add OEM data
         ],
     };
 
-    const chartOptions = {
-        elements: {
-            line: {
-                borderWidth: 3
-            }
-        },
+    const scatterOptions = {
         scales: {
-            r: {
-                angleLines: {
-                    display: true
-                },
-                suggestedMin: 50,
-                suggestedMax: 100
-            }
+            x: {
+                type: 'linear',
+                position: 'bottom',
+            },
         },
     };
 
@@ -127,7 +94,7 @@ const ControllerDetails = () => {
         return ((after - before) / before * 100).toFixed(1); // Returns the percentage improvement
     };
 
-    // Example stats for comparison
+    // Example stats for comparison (TODO - replace with actual stats of improvement in all directions)
     const comparisonStats = {
         responsiveness: {
             before: 50,
@@ -161,7 +128,7 @@ const ControllerDetails = () => {
                     <MDBCard>
                         <MDBCardBody>
                             <MDBCardTitle>Joystick Responsiveness</MDBCardTitle>
-                            <Radar data={chartData} options={chartOptions} />
+                            <Scatter data={scatterData} options={scatterOptions} />
                         </MDBCardBody>
                     </MDBCard>
                 </MDBCol>
