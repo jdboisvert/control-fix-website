@@ -42,11 +42,6 @@ const Navigation = () => {
                                 </NavLink>
                             </MDBNavbarLink>
                         </MDBNavbarItem>
-                        <MDBNavbarItem>
-                            <MDBNavbarLink href='/contact'>
-                                Contact
-                            </MDBNavbarLink>
-                        </MDBNavbarItem>
                     </MDBNavbarNav>
                 </MDBCollapse>
             </MDBContainer>
