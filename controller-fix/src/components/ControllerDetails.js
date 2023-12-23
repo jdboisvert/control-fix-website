@@ -10,18 +10,8 @@ const ControllerDetails = () => {
     const getControllerDetails = (controllerId) => {
         return {
             id: controllerId,
-            name: 'Xtreme Gaming Controller',
-            description: 'Fully customized gaming controller with enhanced grip and responsive triggers.',
-            beforeStats: {
-                responsiveness: 'Low',
-                grip: 'Poor',
-                triggers: 'Sticky',
-            },
-            afterStats: {
-                responsiveness: 'High',
-                grip: 'Excellent',
-                triggers: 'Smooth',
-            },
+            name: 'Yellow Controller',
+            description: 'A very dirty controller that needed a good cleaning.',
             images: {
                 before: 'https://mdbootstrap.com/img/new/standard/nature/184.webp',
                 after: 'https://mdbootstrap.com/img/new/standard/nature/185.webp',
@@ -33,25 +23,26 @@ const ControllerDetails = () => {
 
     // Mock joystick responsiveness values
     const joystickPositionsBefore = [
-        { x: 0, y: 62 },
-        { x: 45, y: 47 },
-        { x: 44, y: -16 },
-        { x: 45, y: -69 },
-        { x: 0, y: -85 },
-        { x: -45, y: -69 },
-        { x: -44, y: -16 },
-        { x: -45, y: 47 },
+        { x: 3, y: 78 },
+        { x: 63, y: 68 },
+        { x: 82, y: -1 },
+        { x: 70, y: -68 },
+        { x: 2, y: -80 },
+        { x: -63, y: -72 },
+        { x: -75, y: -8 },
+        { x: -64, y: 65 }
+        // TODO missing center position
     ];
 
     const joystickPositionsAfter = [
-        { x: 0, y: 85 },
-        { x: -1, y: -100 },
-        { x: -1, y: 87 },
-        { x: -1, y: -100 },
-        { x: -2, y: 100 },
-        { x: -1, y: 75 },
-        { x: -1, y: 100 },
-        { x: -1, y: 100 },
+        { x: 1, y: 82 },
+        { x: 62, y: 71 },
+        { x: 78, y: 1 },
+        { x: 62, y: -68 },
+        { x: 0, y: -81 },
+        { x: -60, y: -70 },
+        { x: -75, y: 0 },
+        { x: -58, y: 69 },
     ];
 
     // Ensure they connect 
@@ -82,10 +73,28 @@ const ControllerDetails = () => {
     };
 
     const scatterOptions = {
+        aspectRatio: 1, // Equal width and height for the canvas (only effective if maintainAspectRatio is true)
         scales: {
             x: {
                 type: 'linear',
                 position: 'bottom',
+                min: -100, // Adjust the minimum value if necessary
+                max: 100,  // Adjust the maximum value if necessary
+                ticks: {
+                    stepSize: 20 // Adjust the step size as necessary
+                }
+            },
+            y: {
+                min: -100, // Adjust the minimum value if necessary
+                max: 100,  // Adjust the maximum value if necessary
+                ticks: {
+                    stepSize: 20 // Adjust the step size as necessary
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                position: 'top',
             },
         },
     };
