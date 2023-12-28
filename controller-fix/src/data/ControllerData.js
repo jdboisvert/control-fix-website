@@ -25,4 +25,29 @@ export const ControllerData = {
             { x: -65, y: 72 }, // Up-Left
         ],
     },
+    24: {
+        title: 'Classic Grey Nintendo 64 Controller',
+        description: 'Replaced stick and greased. Plastic was retro brighted.',
+        imgUrl: '/images/controller_24/controller_24.001.png',
+        joystickPositionsBefore: [
+            { x: 0, y: 85 }, // Up
+            { x: 69, y: 72 }, // Up-Right
+            { x: 83, y: 0 }, // Right
+            { x: 71, y: -72 }, // Down-Right
+            { x: 0, y: -85 }, // Down
+            { x: -64, y: -72 }, // Down-Left
+            { x: -77, y: -1 }, // Left
+            { x: -58, y: 71 }, // Up-Left
+        ],
+        joystickPositionsAfter: [
+            { x: 0, y: 88 }, // Up
+            { x: 70, y: 76 }, // Up-Right
+            { x: 89, y: 0 }, // Right
+            { x: 70, y: -71 }, // Down-Right
+            { x: 0, y: -83 }, // Down
+            { x: -66, y: -71 }, // Down-Left
+            { x: -81, y: 0 }, // Left
+            { x: -65, y: 72 }, // Up-Left
+        ],
+    }
 };

@@ -17,7 +17,6 @@ const ControllerGrid = () => {
             id={card.id}
             imgUrl={card.imgUrl}
             title={card.title}
-            description={card.description}
           />
         </MDBCol>
       ))}

@@ -20,7 +20,7 @@ const Navigation = () => {
             <MDBContainer fluid>
                 <MDBNavbarBrand href='#'>
                     <Link to='/' className='navbar-brand'>
-                        Controller Fix Journal
+                        Nintendo 64 Controller Journal
                     </Link>
                 </MDBNavbarBrand>
 
