@@ -1,17 +1,13 @@
 import React from 'react';
 import { MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import ControllerCard from './ControllerCard';
+import { ControllerData } from '../data/ControllerData';
 
 const ControllerGrid = () => {
-  // TODO load from CSV or future API.
-  const cards = [
-    {
-      id: 2,
-      imgUrl: 'https://mdbootstrap.com/img/new/standard/nature/184.webp',
-      title: 'Yellow Controller',
-      description: 'Was quite dirty and needed a good cleaning.',
-    },
-  ];
+  const cards = Object.entries(ControllerData).map(([id, data]) => ({
+    id,
+    ...data
+  }));
 
   return (
     <MDBRow>
