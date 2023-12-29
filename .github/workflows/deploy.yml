@@ -20,24 +20,18 @@ jobs:
       - name: Installing Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 16.x
-
-      - name: Changing to project directory
-        run: cd controller-fix
+          node-version: 20.x
 
       - name: Installing NPM packages
         run: npm ci
-        working-directory: ./controller-fix
 
       - name: Building project
         run: npm run build
-        working-directory: ./controller-fix
 
       - name: Uploading production-ready build files
         uses: actions/upload-artifact@v2
         with:
           name: production-files
-          path: ./controller-fix/build
 
   deploy:
     name: Deploy
@@ -53,10 +47,8 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: production-files
-          path: ./controller-fix/build
 
       - name: Deploying to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./controller-fix/build
