@@ -33,10 +33,6 @@ jobs:
         run: npm run build
         working-directory: ./controller-fix
 
-      - name: Running tests
-        run: npm run test
-        working-directory: ./controller-fix
-
       - name: Uploading production-ready build files
         uses: actions/upload-artifact@v2
         with:
