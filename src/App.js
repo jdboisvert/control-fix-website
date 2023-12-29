@@ -13,9 +13,9 @@ function App() {
         <Navigation />
         <main>
           <Routes>
-            <Route path="/" element={<ControllerGrid />} />
-            <Route path="/controller/:id" element={<ControllerDetails />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/control-fix-website" element={<ControllerGrid />} />
+            <Route path="/control-fix-website/controller/:id" element={<ControllerDetails />} />
+            <Route path="/control-fix-website/about" element={<About />} />
           </Routes>
         </main>
       </div>

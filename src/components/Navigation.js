@@ -19,7 +19,7 @@ const Navigation = () => {
         <MDBNavbar expand='lg' light bgColor='light'>
             <MDBContainer fluid>
                 <MDBNavbarBrand href='#'>
-                    <Link to='/' className='navbar-brand'>
+                    <Link to='/control-fix-website' className='navbar-brand'>
                         Nintendo 64 Controller Journal
                     </Link>
                 </MDBNavbarBrand>
@@ -37,7 +37,7 @@ const Navigation = () => {
                     <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
                         <MDBNavbarItem>
                             <MDBNavbarLink>
-                                <NavLink to='/about' activeClassName='active'>
+                                <NavLink to='/control-fix-website/about' activeClassName='active'>
                                     About
                                 </NavLink>
                             </MDBNavbarLink>

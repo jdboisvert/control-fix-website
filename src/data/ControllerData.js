@@ -3,7 +3,7 @@ export const ControllerData = {
     3: {
         title: 'Clear Blue Nintendo 64 Controller',
         description: 'Replaced the top gear and greased.',
-        imgUrl: '/images/controller_3/controller_3.001.png',
+        imgUrl: '/control-fix-website/images/controller_3/controller_3.001.png',
         joystickPositionsBefore: [
             { x: -2, y: 79 }, // Up
             { x: 63, y: 64 }, // Up-Right
@@ -28,7 +28,7 @@ export const ControllerData = {
     24: {
         title: 'Classic Grey Nintendo 64 Controller',
         description: 'Replaced stick and greased. Plastic was retro brighted.',
-        imgUrl: '/images/controller_24/controller_24.001.png',
+        imgUrl: '/control-fix-website/images/controller_24/controller_24.001.png',
         joystickPositionsBefore: [
             { x: 0, y: 85 }, // Up
             { x: 69, y: 72 }, // Up-Right

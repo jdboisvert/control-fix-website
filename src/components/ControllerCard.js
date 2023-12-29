@@ -18,7 +18,7 @@ const ControllerCard = ({ id, imgUrl, title, description }) => {
         <MDBCardText>
           {description}
         </MDBCardText>
-        <Link to={`/controller/${id}`}>
+        <Link to={`/control-fix-website/controller/${id}`}>
           <MDBBtn>More Details</MDBBtn>
         </Link>
       </MDBCardBody>
