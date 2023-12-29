@@ -13,13 +13,16 @@ jobs:
 
     - name: Install Dependencies
       run: npm install
+      working-directory: ./controller-fix 
 
     - name: Build
       run: npm run build
+      working-directory: ./controller-fix 
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
-        branch: gh-pages # The branch the action should deploy to.
-        folder: build # The folder the action should deploy.
-        clean: true # Automatically clean and force-push to the branch.
+        branch: gh-pages 
+        folder: ./controller-fix/build 
+        clean: true 
+
